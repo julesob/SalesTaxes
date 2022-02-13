@@ -8,6 +8,8 @@ var imported = document.getElementById('imported');
 var ul = document.getElementsByTagName('ul')[0];
 var ul1 = document.getElementById('total');
 var ul2 = document.getElementById('taxtotal');
+var delBtn = document.getElementById('clear');
+
 
 // Check length of input field
 function addItemLength() {
@@ -126,6 +128,7 @@ function createListItem() {
     }
 
     var li1 = document.createElement('li');
+
     li1.append(document.createTextNode("Total "));
     li1.append(node);
     ul1.appendChild(li1);
@@ -136,40 +139,14 @@ function createListItem() {
     }
 
     input.value = "";
-    /** 
-       // Create delete button, style it and append it to li
-       var delBtn = document.createElement('button');
-       var delX = document.createElement('i');
-       delX.classList.add('fas', 'fa-times');
-       delBtn.classList.add('btn');
-       delBtn.appendChild(delX);
-       delBtn.addEventListener('click', delItem);
-       li.append(delBtn);
-   
 
-
-    // Hide empty list text if li's exist
-    if (checkLis() > 0) {
-        var emptyList = document.querySelector('h2');
-        emptyList.style.display = "none";
-    }
-    */
     // Toggle line-through on click
     function toggleDone() {
         li.classList.toggle('done');
+  
+
     }
-/**
- 
- 
-    // Delete item
-    function delItem() {
-        li.remove();
 
-        if (checkLis() == 0) {
-            emptyList.style.display = "block";
-        }
-
-    } */
 }
 
 // On click
@@ -187,7 +164,12 @@ function addKey(event) {
     }
 }
 
+// On Clear the page refresh and new list can be started
+function refreshPage() {
+    imported.checked = false;
+    window.location.reload();
+}
 
+delBtn.addEventListener('click', refreshPage);
 addBtn.addEventListener('click', addClick);
 input1.addEventListener('keypress', addKey);
-
