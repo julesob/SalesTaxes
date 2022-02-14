@@ -50,4 +50,5 @@ https://mintjule.github.io/SalesTaxes/
 
 Or you can download the repository and then open only the html flie in the desired webbrowser.
 
+The page shows an input form where you can select the item, choose if it is imported and a field for the desired price. With the button 'add' you can add the specified input and get the result. With the button 'clear' you can erase the list.
 
