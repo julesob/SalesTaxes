@@ -20,7 +20,7 @@ Input 3:
 - 1 box of imported chocolates at 11.25
 
 
-### OUTPUT
+### OUTPUT:
 Output 1:
 - 1 book: 12.49
 - 1 music CD: 16.49
@@ -44,11 +44,10 @@ Output 3:
 
 # Getting Started
  
-My application is written in JavaScrip, HTML and CSS and can be installed on most web servers without additional applications or modules. 
+My application is written in JavaScript, HTML and CSS and can be installed on most web servers without additional applications or modules. 
 One can open the applications via the following link:
 https://mintjule.github.io/SalesTaxes/
 
-Or you can download the repository and then open only the html flie in the desired webbrowser.
+Or you can download the repository and then open the HTML file in the desired webbrowser.
 
 The page shows an input form where you can select the item, choose if it is imported and a field for the desired price. With the button 'add' you can add the specified input and get the result. With the button 'clear' you can erase the list.
-
