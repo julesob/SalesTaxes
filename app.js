@@ -150,15 +150,18 @@ function sumAll(x, i) {
 function addClick() {
     if (addItemLength() > 0) {
         createListItem();
-
-    }
+        document.getElementById("inputPrice").value = "";
+   }
+   
 }
 
 // On keypress enter
 function addKey(event) {
     if (addItemLength() > 0 && event.keyCode == 13) {
         createListItem();
+        document.getElementById("inputPrice").value = "";
     }
+    
 }
 
 // On Clear the page refresh and new list can be started
