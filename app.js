@@ -1,8 +1,8 @@
 var total = [];
 var taxtotal = [];
 var addBtn = document.getElementById('add');
-var input = document.getElementById('userInput');
-var input1 = document.getElementById('userInput1');
+var item = document.getElementById('inputItem');
+var price = document.getElementById('inputPrice');
 var imported = document.getElementById('imported');
 
 var ul = document.getElementsByTagName('ul')[0];
@@ -13,8 +13,7 @@ var delBtn = document.getElementById('clear');
 
 // Check length of input field
 function addItemLength() {
-
-    return document.getElementById('userInput').value.length;
+    return document.getElementById('inputItem').value.length;
 }
 
 
@@ -29,14 +28,12 @@ function checkLis() {
 function createListItem() {
 
     // rounding rules
-
     function roundNumber(number_to_round) {
         return Math.ceil(number_to_round * 20) / 20
     }
 
     // calculating all the taxes, for import and normal taxes
-
-    function sumAll(x, i) {
+function sumAll(x, i) {
         if (imported.checked == true) {
             if (x == 'bottle of perfume' || x == 'music CD') {
                 var tax = (15 * i) / 100;
@@ -90,9 +87,9 @@ function createListItem() {
     if (imported.checked == true) {
         li.append(document.createTextNode("imported "));
     }
-    li.append(document.createTextNode(input.value));
+    li.append(document.createTextNode(item.value));
     li.append(document.createTextNode(" "));
-    li.append(document.createTextNode(sumAll(input.value, parseFloat(input1.value))));
+    li.append(document.createTextNode(sumAll(item.value, parseFloat(price.value))));
 
     li.addEventListener('click', toggleDone);
     ul.appendChild(li);
@@ -100,10 +97,10 @@ function createListItem() {
     //console.log(sumAll('music CD', 21))
 
     // Array to save the price
-    total.push(sumAll(input.value, parseFloat(input1.value)));
+    total.push(sumAll(item.value, parseFloat(price.value)));
     console.log(total)
     // Array to save the taxes
-    taxtotal.push(taxT(input.value, parseFloat(input1.value)));
+    taxtotal.push(taxT(item.value, parseFloat(price.value)));
     console.log(taxtotal)
     // calculatin Total
     var sum = total.reduce(function (pv, cv) { var tot = parseFloat(pv) + parseFloat(cv); return tot.toFixed(2) });
@@ -138,7 +135,7 @@ function createListItem() {
         ul1.removeChild(ul1.childNodes[0]);
     }
 
-    input.value = "";
+    item.value = "";
 
     // Toggle line-through on click
     function toggleDone() {
@@ -172,4 +169,4 @@ function refreshPage() {
 
 delBtn.addEventListener('click', refreshPage);
 addBtn.addEventListener('click', addClick);
-input1.addEventListener('keypress', addKey);
+price.addEventListener('keypress', addKey);
